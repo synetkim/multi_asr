@@ -1,0 +1,24 @@
+./compute-phasediff-feats --verbose=2 --config=../../conf/phasediff.conf scp,p:wav.1.scp scp,p:wav.3.scp scp,p:wav.4.scp scp,p:wav.5.scp scp,p:wav.6.scp ark,scp:out.ark,out.scp 
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:111) final_cols_out: 6400
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:112) mid_cols_out: 1280
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:113) start_cols_out: 256
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:131) compute all frames: 348
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:134) fram # 0
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:155) Extract fft coeff # 0
+LOG (compute-phasediff-feats:ComputeFFTwithPhaseDifference():feature-spectrogram.cc:160) window: 512
+LOG (compute-phasediff-feats:ComputePowerSpectrumPhaseDifference():feature-functions.cc:173) ComputePowerSpectrumPhaseDifference: dim: 512
+LOG (compute-phasediff-feats:ComputePowerSpectrumPhaseDifference():feature-functions.cc:174) ComputePowerSpectrumPhaseDifference: half_dim: 256
+KALDI_ASSERT: at compute-phasediff-feats:CopyFromVec:kaldi-vector.cc:226, failed: Dim() == v.Dim()
+Stack trace is:
+kaldi::KaldiGetStackTrace()
+kaldi::KaldiAssertFailure_(char const*, char const*, int, char const*)
+kaldi::VectorBase<float>::CopyFromVec(kaldi::VectorBase<float> const&)
+kaldi::ComputePowerSpectrumPhaseDifference(kaldi::VectorBase<float>*, kaldi::VectorBase<float>*, kaldi::VectorBase<float>*, kaldi::VectorBase<float>*, kaldi::VectorBase<float>*, kaldi::VectorBase<float>*, kaldi::VectorBase<float>*)
+kaldi::Spectrogram::ComputeFFTwithPhaseDifference(kaldi::VectorBase<float> const&, kaldi::VectorBase<float> const&, kaldi::VectorBase<float> const&, kaldi::VectorBase<float> const&, kaldi::VectorBase<float> const&, kaldi::Matrix<float>*, kaldi::Vector<float>*)
+./compute-phasediff-feats(main+0xb0c) [0x46e279]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf5) [0x7f305e09dec5]
+./compute-phasediff-feats() [0x46d6a9]
+WARNING (compute-phasediff-feats:main():compute-phasediff-feats.cc:123) Failed to compute features for utterance F05_440C0201_PED._REAL
+LOG (compute-phasediff-feats:main():compute-phasediff-feats.cc:136)  Done 0 out of 1 utterances.
+select-feats 0-255 scp:out.scp ark,t:- 
+WARNING (select-feats:main():select-feats.cc:59) Empty archive provided.
